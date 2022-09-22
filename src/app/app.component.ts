@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-quickstart';
+   ngOnInit(): void {
+    document.querySelector('circle').addEventListener('click', (e: any) => {
+      const randomColour = Math.round(Math.random() * 0xffffff);
+      e.target.style.stroke = `#${randomColour.toString(16).padStart(6, '0')}`;
+    });
+  }
 }
